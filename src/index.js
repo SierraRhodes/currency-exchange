@@ -15,16 +15,21 @@ CurrencyService.getCurrency()
       dropdown.add(option);
     }
 
-    dropdown.addEventListener("change", function () {
-      const selectedCurrency = this.value;
+    const form = document.getElementById("currency-form");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      convertCurrency();
+
+    });
+
+    function convertCurrency() {
+      const selectedCurrency = dropdown.value;
       const currencyAmount = document.getElementById("currencyAmount").value;
 
       const convertedAmount = currencyAmount * rates[selectedCurrency];
       const convertedAmountElement = document.getElementById("convertedAmount");
 
-
       convertedAmountElement.innerHTML = convertedAmount.toFixed(2) + " " + selectedCurrency;
-    });
-
-
+    }
+    
   });
