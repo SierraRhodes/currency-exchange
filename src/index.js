@@ -6,7 +6,7 @@ import CurrencyService from './CurrencyService.js';
 CurrencyService.getCurrency()
   .then((data) => {
     const rates = data.conversion_rates;
-    const dropdown = document.getElementBy("currency-dropdown");
+    const dropdown = document.getElementById("currency-dropdown");
 
     for(const currency in rates) {
       const option = document.createElement("option");
@@ -14,6 +14,17 @@ CurrencyService.getCurrency()
       option.text = currency + "(" + rates[currency] + ")";
       dropdown.add(option);
     }
+
+    dropdown.addEventListener("change", function () {
+      const selectedCurrency = this.value;
+      const currencyAmount = document.getElementById("currencyAmount").value;
+
+      const convertedAmount = currencyAmount * rates[selectedCurrency];
+      const convertedAmountElement = document.getElementById("convertedAmount");
+
+
+      convertedAmountElement.innerHTML = convertedAmount.toFixed(2) + " " + selectedCurrency;
+    });
 
 
   });

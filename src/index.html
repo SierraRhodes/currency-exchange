@@ -9,13 +9,21 @@
 <body>
   <header><h1>Currency Exchange</h1></header>
   <form>
-   <div>
-     <input type="text" id="currencyAmount">
-   </div>
-   <select id="currency-dropdown" class="form-select" aria-label="Default select example">
-    <option selected>Open this select menu</option>
-   </select>
-   <button type="submit" id="button">Submit</button>
+    <div>
+      <input type="text" id="currencyAmount">
+    </div>
+    <select id="currency-dropdown" class="form-select" aria-label="Default select example">
+      <option selected>Open this select menu</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+      <option value="JPY">JPY</option>
+      <option value="CAD">CAD</option>
+      <option value="AUD">AUD</option>
+      <option value="CHF">CHF</option>
+    </select>
+    <button type="submit" id="button">Submit</button>
+  </form>
+  <div id="convertedAmount"></div>
   </form>
 </body>
 </html>
