@@ -10,6 +10,7 @@ export default class CurrencyService {
       }
       return jsonifiedResponse;
     } catch(error) {
+      console.log(error);
       return error;
     }
   }

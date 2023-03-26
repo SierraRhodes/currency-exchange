@@ -5,6 +5,11 @@ import CurrencyService from './CurrencyService.js';
 
 CurrencyService.getCurrency()
   .then((data) => {
+    if(data.result === "error") {
+      const errorElement = document.getElementById("error");
+      errorElement.innerHTML = data["error-type"] + ": " + data["error-info"];
+      return;
+    }
     const rates = data.conversion_rates;
     const dropdown = document.getElementById("currency-dropdown");
 
@@ -19,7 +24,6 @@ CurrencyService.getCurrency()
     form.addEventListener("submit", function(event) {
       event.preventDefault();
       convertCurrency();
-
     });
 
     function convertCurrency() {
@@ -31,5 +35,4 @@ CurrencyService.getCurrency()
 
       convertedAmountElement.innerHTML = convertedAmount.toFixed(2) + " " + selectedCurrency;
     }
-    
   });
