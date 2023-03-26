@@ -1,3 +1,54 @@
-body {
-  background-color: pink;
+
+header {
+  background-color: #cbf3f0;
+  font-family: 'breamcatcher', sans-serif;
+  height: 33%; 
+  padding: 10%;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  padding: 10px;
+  gap: 20px;
+}
+
+#currencyAmount {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #444;
+}
+
+#currency-dropdown {
+  margin-right: 10px;
+  width: 250px;
+}
+
+#button {
+  background-color: #2ec4b6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+#convertedAmount {
+  font-size: 20px;
+  padding-top: 5%;
+  text-align: center;
 }

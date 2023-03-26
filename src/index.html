@@ -9,7 +9,9 @@
 <body>
   <header><h1>Currency Exchange</h1></header>
   <form id="currency-form">
+    <div id="container">
     <div>
+      <label for="input">Enter USD Amount</label>
       <input type="text" id="currencyAmount">
     </div>
     <select id="currency-dropdown" class="form-select" aria-label="Default select example">
@@ -22,6 +24,7 @@
       <option value="CHF">CHF</option>
     </select>
     <button type="submit" id="button">Submit</button>
+    </div>
   </form>
   <div id="convertedAmount"></div>
   <div id="error"></div>
