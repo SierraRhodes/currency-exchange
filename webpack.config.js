@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // new line
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -14,6 +15,7 @@ module.exports = {
   },
   devtool: 'eval-source-map',  // new line
   plugins: [
+    new Dotenv(),
     new ESLintWebpackPlugin(),
     new CleanWebpackPlugin(), // new line
     new HtmlWebpackPlugin({
