@@ -4,10 +4,8 @@ export default class CurrencyService {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
       const data = await response.json();
 
-
       if (data.result === "error") {
-        const errorMessage = `An error occured while fetching the currency data: ${data["error-type"]}`;
-        console.log(errorMessage);
+        const errorMessage = `${data["error-type"]}`;
         throw new Error(errorMessage);
       }
 
