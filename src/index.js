@@ -4,33 +4,14 @@ import './css/styles.css';
 import CurrencyService from './CurrencyService.js';
 
 CurrencyService.getCurrency()
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Failed to fetch currency data.");
-    }
-
-    return response.json();
-  })
   .then((data) => {
     if(data.result === "error") {
+      const errorMessage = `An error occured while fetching the currency data: ${data["error-type"]}`;
       const errorElement = document.getElementById("error");
-      switch (data["error-type"]) {
-        case "unsupported-code":
-          errorElement.innerHTML = "Sorry, the currency code you selected is not supported by our service.";
-          break;
-        case "malformed-request":
-          errorElement.innerHTML = "Sorry, the request to our server is malformed. Please try again.";
-          break;
-        case "invalid-key":
-          errorElement.innerHTML = "Sorry, your API key is invalid. Please check that you have entered it correctly.";
-          break;
-        default:
-          errorElement.innerHTML = "Sorry, an error occurred while fetching the currency data. Please try again later.";
-          break;
-      }
-
-      return;
+      errorElement.innerHTML = errorMessage;
+      throw new Error(errorMessage);
     }
+
     const rates = data.conversion_rates;
     const dropdown = document.getElementById("currency-dropdown");
 
